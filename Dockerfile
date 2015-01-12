@@ -7,7 +7,7 @@ RUN  DEBIAN_FRONTEND=noninteractive apt-get update
 
 RUN  DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 
-RUN  DEBIAN_FRONTEND=noninteractive apt-get install -y curl git nano openssh-server
+RUN  DEBIAN_FRONTEND=noninteractive apt-get install -y curl git nano openssh-server htop wget supervisor
 
 # Install Nodejs
 
@@ -30,7 +30,7 @@ RUN adduser --disabled-password --gecos "" meteor
 
 # Enable openssh, for sshfs
 
-CMD /usr/sbin/sshd -D
+ADD sshd.conf /etc/supervisor/conf.d/sshd.conf
 
 RUN echo 'meteor:meteor' | chpasswd
 
@@ -38,9 +38,7 @@ RUN echo 'meteor:meteor' | chpasswd
 
 USER meteor
 
-WORKDIR /home/meteor
-
-RUN git clone https://github.com/servermeta/sketeor.git
+RUN git clone https://github.com/servermeta/sketeor.git /home/meteor/sketeor
 
 
 USER root
