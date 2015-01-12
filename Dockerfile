@@ -40,4 +40,5 @@ WORKDIR /home/meteor
 
 RUN git clone https://github.com/servermeta/sketeor.git
 
-EXPOSE 3000, 22
+EXPOSE 3000
+EXPOSE 22
