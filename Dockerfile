@@ -30,7 +30,7 @@ RUN adduser --disabled-password --gecos "" meteor
 
 # Enable openssh, for sshfs
 
-RUN service ssh start
+CMD /usr/sbin/sshd -D
 
 RUN echo 'meteor:meteor' | chpasswd
 
@@ -42,7 +42,6 @@ WORKDIR /home/meteor
 
 RUN git clone https://github.com/servermeta/sketeor.git
 
-WORKDIR /home/meteor/sketeor
 
 USER root
 
