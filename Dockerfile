@@ -3,7 +3,7 @@ MAINTAINER ServerMeta <admin@servermeta.net>
 
 # Requirements
 
-RUN apt-get install -y curl git
+RUN apt-get install -y curl git nano
 
 # Install Nodejs
 
