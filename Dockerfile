@@ -20,11 +20,13 @@ RUN  DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
 
 # Install Meteor
 
+WORKDIR /home/
+
 RUN curl -s https://install.meteor.com/ | sudo bash
 
 # Create Meteor user
 
-RUN useradd -d /home/meteor meteor
+RUN adduser --disabled-password --gecos "" meteor
 
 # Enable openssh, for sshfs
 
