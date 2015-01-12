@@ -42,6 +42,8 @@ WORKDIR /home/meteor
 
 RUN git clone https://github.com/servermeta/sketeor.git
 
+WORKDIR /home/meteor/sketeor
+
 USER root
 
 EXPOSE 3000
