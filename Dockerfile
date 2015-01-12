@@ -24,7 +24,7 @@ RUN curl -s https://install.meteor.com/ | sudo bash
 
 # Create Meteor user
 
-RUN useradd -m meteor
+RUN useradd -d /home/meteor meteor
 
 # Enable openssh, for sshfs
 
@@ -39,6 +39,8 @@ USER meteor
 WORKDIR /home/meteor
 
 RUN git clone https://github.com/servermeta/sketeor.git
+
+USER root
 
 EXPOSE 3000
 EXPOSE 22
